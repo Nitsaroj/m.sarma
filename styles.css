@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+
+#hero-name,.about,#stats > h2,#skills-heading > h2,.project,.contact{
+  font-family: "Days One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

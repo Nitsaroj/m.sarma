@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mit Sarma</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+    </script>
+  </head>
+  <body class="scroll-smooth">
+    <!-- Cursor Tracker -->
+    <div
+      id="cursor"
+      class="fixed w-8 h-8 bg-black/30 rounded-full pointer-events-none z-[9999]"
+    ></div>
+    <!-- Navbar -->
+    <header
+      id="navbar"
+      class="fixed top-0 w-full z-50 bg-white shadow-sm transition-transform duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4"
+      >
+        <div class="text-xl font-bold">M.Sarma</div>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex gap-6 items-center">
+          <a href="#home" class="text-sm">Home</a>
+          <a href="#about" class="text-sm">About me</a>
+          <a href="#projects" class="text-sm">Project</a>
+          <a href="#contact" class="text-sm">Contact</a>
+        </nav>
+
+        <a
+          href="#contact"
+          class="bg-black text-white px-6 py-2 rounded-full text-lg font-semibold text-sm"
+        >
+          Contact →
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-2xl focus:outline-none">
+            &#9776;
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Fullscreen Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col px-6 py-8 md:hidden"
+    >
+      <div class="flex justify-end">
+        <button id="close-btn" class="text-3xl font-bold">&times;</button>
+      </div>
+      <ul
+        class="flex flex-col items-center justify-center flex-1 gap-6 text-xl mt-10"
+      >
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About me</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Project</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        <li>
+          <a
+            href="#contact"
+            class="bg-black text-white px-6 py-2 rounded-full text-lg font-semibold text-sm"
+          >
+            Contact →
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Spacer -->
+    <div class="h-20"></div>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 space-y-16" id="home">
+      <h1
+        id="hero-heading"
+        class="text-4xl md:text-5xl font-semibold opacity-1"
+      >
+        Hey there, I’m
+      </h1>
+      <h2
+        id="hero-name"
+        class="text-[60px] md:text-[160px] font-black leading-none tracking-tight opacity-1 text-center"
+      >
+        Mit Sarma
+      </h2>
+
+      <div class="lg:flex justify-between text-lg">
+        <div id="hero-box-1" class="opacity-1">
+          <h3 class="font-semibold text-3xl">
+            UI/UX Designer &<br />Developer
+          </h3>
+          <p class="text-gray-600 my-10 text-sm">
+            A seasoned UI/UX designer dedicated to <br />
+            bridging creativity
+          </p>
+        </div>
+        <div class="text-left" id="hero-box-3">
+          <a
+            href="mailto:mitbhai989@gmail.com"
+            class="text-lg font-semibold hover:underline flex items-center gap-1 py-4"
+          >
+            mitbhai989@gmail.com
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+              <path
+                d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div id="hero-box-2" class="opacity-1">
+          <h3 class="font-semibold text-3xl">Based in<br />Bengaluru India</h3>
+          <p class="text-gray-600 my-10 text-sm">
+            With a knack for transforming ideas into visually <br />
+            compelling interfaces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section
+      id="about"
+      class="max-w-7xl mx-auto px-6 md:py-20 grid md:grid-cols-2 gap-10 items-center"
+    >
+      <!-- Left: Image -->
+      <div
+        id="about-img"
+        class="opacity-1 relative overflow-hidden group rounded-lg"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9"
+          alt="About"
+          class="w-full object-cover h-full shadow-lg transition-transform duration-700 ease-in-out group-hover:scale-110"
+        />
+      </div>
+
+      <!-- Right: Text -->
+      <div id="about-text" class="space-y-6 opacity-1">
+        <h1 class="about text-3xl md:text-7xl font-bold">About Me</h1>
+        <h2 class="text-2xl text-gray-700">Creative Designer & Developer</h2>
+        <p class="text-gray-600 text-xl">
+          I'm a passionate UI/UX designer and developer focused on turning ideas
+          into beautiful, functional products. I love working with animation,
+          clean UI, and solving real user problems.
+        </p>
+      </div>
+    </section>
+
+    <section id="stats" class="bg-white py-20 px-6">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-14 text-center"
+      >
+        <!-- Box 1 -->
+        <div class="space-y-4 border-b pb-6 flex justify-between">
+          <h2 class="md:text-2xl font-semibold">Years Experience</h2>
+          <h3 class="text-6xl font-bold text-black counter" data-count="8">
+            0
+          </h3>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="space-y-4 border-b pb-6 flex justify-between">
+          <h2 class="md:text-2xl font-semibold">Projects Completed</h2>
+          <h3 class="text-6xl font-bold text-black counter" data-count="15">
+            0
+          </h3>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="space-y-4 border-b pb-6 flex justify-between">
+          <h2 class="md:text-2xl font-semibold">Different Design Industries</h2>
+          <h3 class="text-6xl font-bold text-black counter" data-count="15">
+            0
+          </h3>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="space-y-4 border-b pb-6 flex justify-between">
+          <h2 class="md:text-2xl font-semibold">Agencies Worked With</h2>
+          <h3 class="text-6xl font-bold text-black counter" data-count="4">
+            0
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 px-6 bg-white text-center">
+      <div class="max-w-5xl mx-auto">
+        <!-- Heading -->
+        <div class="mb-12" id="skills-heading">
+          <h2 class="text-4xl md:text-7xl font-bold mb-4">
+            Skills & Expertise
+          </h2>
+          <p class="text-gray-600 text-lg p-10">
+            Over the years, I’ve honed a versatile skill set that bridges gap
+            between design and development. My expertise lies in crafting
+            visually compelling, experiences while ensuring seamless
+            functionality.
+          </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid md:grid-cols-3 gap-12" id="skills-cards">
+          <!-- Design -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold">Design</h3>
+            <p class="text-gray-700">
+              UI/UX Design / Branding / <br />
+              Visual Storytelling
+            </p>
+          </div>
+
+          <!-- Development -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold">Development</h3>
+            <p class="text-gray-700">
+              Frontend Development / Responsive Design / <br />
+              Interactive Prototyping
+            </p>
+          </div>
+
+          <!-- Tools -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold">Tools</h3>
+            <p class="text-gray-700">
+              Figma / Adobe Creative Suite / <br />
+              Webflow / Framer
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center md:py-10">
+        <h2 class="project text-5xl md:text-8xl font-bold mb-12">
+          My Projects
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Project Card -->
+          <div
+            class="project-card group relative overflow-hidden bg-white transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <div class="relative">
+              <img
+                src="https://picsum.photos/id/870/600/500?grayscale"
+                alt="QuickCart"
+                class="w-full h-[50vh] object-cover"
+              />
+
+              <!-- Title and Type on hover -->
+              <div
+                class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-left"
+              >
+                <h3 class="text-xl text-white font-semibold">QuickCart</h3>
+                <p class="text-sm text-gray-200">E-commerce Website</p>
+              </div>
+
+              <!-- Live Button in bottom-right -->
+              <a
+                href="#"
+                target="_blank"
+                class="absolute bottom-4 right-4 w-14 h-14 flex items-center justify-center bg-white text-black rounded-full font-bold text-sm shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-green-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <path
+                    d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project Card -->
+          <div
+            class="project-card group relative overflow-hidden bg-white transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <div class="relative">
+              <img
+                src="https://picsum.photos/id/871/600/500?grayscale"
+                alt="BrandBoost"
+                class="w-full h-[50vh] object-cover"
+              />
+
+              <!-- Title and Type on hover -->
+              <div
+                class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-left"
+              >
+                <h3 class="text-xl text-white font-semibold">BrandBoost</h3>
+                <p class="text-sm text-gray-200">Marketing Agency Website</p>
+              </div>
+
+              <!-- Live Button in bottom-right -->
+              <a
+                href="#"
+                target="_blank"
+                class="absolute bottom-4 right-4 w-14 h-14 flex items-center justify-center bg-white text-black rounded-full font-bold text-sm shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-green-500"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <path
+                    d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 bg-white">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="contact text-4xl md:text-7xl font-extrabold mb-16">
+          Contact
+        </h2>
+
+        <form action="#" method="POST" class="space-y-8">
+          <!-- Full Name -->
+          <div class="border-b border-gray-300 pb-2">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              class="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="border-b border-gray-300 pb-2">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              class="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
+          </div>
+
+          <!-- Phone -->
+          <div class="border-b border-gray-300 pb-2">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              class="w-full bg-transparent outline-none placeholder-gray-500"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="border-b border-gray-300 pb-2">
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Message"
+              class="w-full bg-transparent outline-none placeholder-gray-500 resize-none"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-6">
+            <button
+              type="submit"
+              class="bg-black text-white font-semibold px-8 py-3 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-800 transition duration-300"
+            >
+              Send Message
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-white text-black py-3 text-center border-top border-2">
+      <div class="container mx-auto px-4">
+        <div class="md:flex justify-between items-center">
+          © 2025 YourBrand. All rights reserved.
+          <div class="flex space-x-4 justify-between">
+            <a href="#" class="text-gray-400 hover:text-gray-500">Facebook</a>
+            <a href="#" class="text-gray-400 hover:text-gray-500">Twitter</a>
+            <a href="#" class="text-gray-400 hover:text-gray-500">Instagram</a>
+            <a href="#" class="text-gray-400 hover:text-gray-500">Github</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
